@@ -1,0 +1,14 @@
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\bin\Debug\netcoreapp3.1\JsonXmlCollection.exe
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\bin\Debug\netcoreapp3.1\JsonXmlCollection.deps.json
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\bin\Debug\netcoreapp3.1\JsonXmlCollection.runtimeconfig.json
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\bin\Debug\netcoreapp3.1\JsonXmlCollection.runtimeconfig.dev.json
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\bin\Debug\netcoreapp3.1\JsonXmlCollection.dll
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\bin\Debug\netcoreapp3.1\JsonXmlCollection.pdb
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\obj\Debug\netcoreapp3.1\JsonXmlCollection.csproj.AssemblyReference.cache
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\obj\Debug\netcoreapp3.1\JsonXmlCollection.GeneratedMSBuildEditorConfig.editorconfig
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\obj\Debug\netcoreapp3.1\JsonXmlCollection.AssemblyInfoInputs.cache
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\obj\Debug\netcoreapp3.1\JsonXmlCollection.AssemblyInfo.cs
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\obj\Debug\netcoreapp3.1\JsonXmlCollection.csproj.CoreCompileInputs.cache
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\obj\Debug\netcoreapp3.1\JsonXmlCollection.dll
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\obj\Debug\netcoreapp3.1\JsonXmlCollection.pdb
+D:\Skillbox\CSharp\HW8_Csharp_JSON\JsonXmlCollection\JsonXmlCollection\obj\Debug\netcoreapp3.1\JsonXmlCollection.genruntimeconfig.cache
