@@ -20,35 +20,69 @@ namespace JsonXmlCollection
             return result.Trim();
         }
 
-        private string[]? EnterPhoneName()
+        private string? EnterPhone()
         {
-            string patternPhoneNumber1 = @"[+][0-9]{3}[(][0-9]{2}[)][-][0-9]{3}[-][0-9]{2}[-][0-9]{2}";
+            string patternPhoneNumber1 = @"[+][0-9]{3}[(][0-9]{2}[)][-]([0-9]{3}[-][0-9]{2}[-][0-9]{2})";
             string patternPhoneNumber2 = @"[0-9]{3}[-][0-9]{2}[-][0-9]{2}";
-            string patternPhoneNumber3 = @"[+][0-9]*";
-            string patternPhoneNumber4 = @"[0-9]*";
-            string[] _phoneName = new string[2];
+            string patternPhoneNumber3 = @"[+]([0-9]{3})([0-9]{2})([0-9]{2})";
+            string patternPhoneNumber4 = @"([0-9]{3})([0-9]{2})([0-9]{2})";
+            string _numberPhone = "";
             Console.WriteLine("Укажите номер телефона в формате +111(11)-111-11-11, 111-11-11, +1111111 или 1111111");
             string _phone = Console.ReadLine();
             if (_phone == "")
             {
+                Console.WriteLine("Ввод закончен!");
                 return null;
             }
-            if (Regex.IsMatch(_phone, patternPhoneNumber1) ||
-                Regex.IsMatch(_phone, patternPhoneNumber2) ||
-                Regex.IsMatch(_phone, patternPhoneNumber3) ||
-                Regex.IsMatch(_phone, patternPhoneNumber4))
+            if (Regex.IsMatch(_phone, patternPhoneNumber1))
             {
-                _phoneName[0] = _phone;
+                foreach (Match? match in Regex.Matches(_phone, patternPhoneNumber1))
+                {
+                    _numberPhone = match.Groups[1].Value;
+                }
+            }
+            else if (Regex.IsMatch(_phone, patternPhoneNumber2))
+            {
+                _numberPhone = _phone;
+            }
+            else if (Regex.IsMatch(_phone, patternPhoneNumber3))
+            {
+                foreach (Match? match in Regex.Matches(_phone, patternPhoneNumber3))
+                {
+                    _numberPhone = match.Groups[1].Value + "-" + match.Groups[2].Value + "-" + match.Groups[3].Value;
+                }
+            }
+            else if (Regex.IsMatch(_phone, patternPhoneNumber4))
+            {
+                foreach (Match? match in Regex.Matches(_phone, patternPhoneNumber4))
+                {
+                    _numberPhone = match.Groups[1].Value + "-" + match.Groups[2].Value + "-" + match.Groups[3].Value;
+                }
             }
             else
             {
                 Console.WriteLine("Неверный формат!");
                 return null;
             }
-            Console.WriteLine("Укажите имя контакта -");
-            _phoneName[1] = Capitalize(Console.ReadLine());
+            return _numberPhone;
+        }
 
-            return _phoneName;
+        private string[]? EnterContact()
+        {
+            string? _numberPhone = EnterPhone();
+            string[] _arrayPhoneName = new string[2];
+            if (_numberPhone != null)
+            {
+                _arrayPhoneName[0] = _numberPhone;
+            }
+            else
+            {
+                return null;
+            }
+            Console.WriteLine("Укажите имя контакта -");
+            _arrayPhoneName[1] = Capitalize(Console.ReadLine());
+
+            return _arrayPhoneName;
         }
 
         public void AddContact()
@@ -56,7 +90,7 @@ namespace JsonXmlCollection
             bool flag = true;
             while (flag)
             {
-                string[]? newContact = EnterPhoneName();
+                string[]? newContact = EnterContact();
                 if (newContact != null)
                 {
                     _phoneNote.Add(newContact[0], newContact[1]);
@@ -66,7 +100,6 @@ namespace JsonXmlCollection
                     flag = false;
                 }
             }
-            Console.WriteLine("Ввод закончен!");
         }
 
         public void ReadPhoneNote()
@@ -75,6 +108,11 @@ namespace JsonXmlCollection
             {
                 Console.WriteLine($"{phoneNote.Key} - {phoneNote.Value}");
             }
+        }
+
+        public void SelectContact()
+        {
+
         }
     }
 }
