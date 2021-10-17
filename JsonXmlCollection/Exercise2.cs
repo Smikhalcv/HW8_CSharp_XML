@@ -9,6 +9,10 @@ namespace JsonXmlCollection
     {
         private Dictionary<string, string> _phoneNote = new Dictionary<string, string>();
 
+        /// <summary>
+        /// Разбивает строку на массив строк и складывает заново, 
+        /// заменяя на высокий регистр каждую первую букву элемента массива  
+        /// </summary>
         private string Capitalize(string rawString)
         {
             string result = "";
@@ -20,6 +24,11 @@ namespace JsonXmlCollection
             return result.Trim();
         }
 
+        /// <summary>
+        /// Запрашивает номер телефона определённого образца,
+        /// прив одя его к определённому виду
+        /// </summary>
+        /// <returns>строковое представление номера телефона</returns>
         private string? EnterPhone()
         {
             string patternPhoneNumber1 = @"[+][0-9]{3}[(][0-9]{2}[)][-]([0-9]{3}[-][0-9]{2}[-][0-9]{2})";
@@ -27,7 +36,8 @@ namespace JsonXmlCollection
             string patternPhoneNumber3 = @"[+]([0-9]{3})([0-9]{2})([0-9]{2})";
             string patternPhoneNumber4 = @"([0-9]{3})([0-9]{2})([0-9]{2})";
             string _numberPhone = "";
-            Console.WriteLine("Укажите номер телефона в формате +111(11)-111-11-11, 111-11-11, +1111111 или 1111111");
+            Console.WriteLine("Укажите номер телефона в формате +111(11)-111-11-11, 111-11-11, +1111111 или 1111111\n" +
+                "или введите пустую строку чтоб закончить добавление контактов.");
             string _phone = Console.ReadLine();
             if (_phone == "")
             {
@@ -67,6 +77,9 @@ namespace JsonXmlCollection
             return _numberPhone;
         }
 
+        /// <summary>
+        /// Создаёт и возвращает массив строк из номера телефона и имени контакта
+        /// </summary>
         private string[]? EnterContact()
         {
             string? _numberPhone = EnterPhone();
@@ -85,7 +98,7 @@ namespace JsonXmlCollection
             return _arrayPhoneName;
         }
 
-        public void AddContact()
+        private void AddContact()
         {
             bool flag = true;
             while (flag)
@@ -102,17 +115,62 @@ namespace JsonXmlCollection
             }
         }
 
-        public void ReadPhoneNote()
+        private void ReadPhoneNote()
         {
-            foreach (KeyValuePair<string, string> phoneNote in _phoneNote)
+            foreach (string key in _phoneNote.Keys)
             {
-                Console.WriteLine($"{phoneNote.Key} - {phoneNote.Value}");
+                PrintContect(key);
             }
         }
 
-        public void SelectContact()
+        private void SelectContact()
         {
+            string? phone = EnterPhone();
+            if (phone != null)
+            {
+                PrintContect(phone);
+            }
+            else
+            {
+                Console.WriteLine("Контакта с таким номером не зарегистрировано.");
+            }
+        }
 
+        private void PrintContect(string numberPhone)
+        {
+            Console.WriteLine($"Номер телефона {numberPhone, 13}");
+            Console.WriteLine($"Имя контакта {_phoneNote[numberPhone]}");
+        }
+
+        public void PhoneNoteManager()
+        {
+            Console.WriteLine("Добро пожаловать в телефонную книгу!");
+            bool flag = true;
+            while (flag)
+            {
+                Console.WriteLine($"Количество контактов - {_phoneNote.Count}");
+                Console.WriteLine("Выберите действие-");
+                Console.WriteLine("1 - просмотреть все контакты;\n" +
+                    "2 - добавить контакт;\n" +
+                    "3 - просмотреть выбранный контакт по номеру телефона;\n" +
+                    "4 - выйти из телефонной книги.");
+                string mode = Console.ReadLine();
+                switch (mode)
+                {
+                    case "1":
+                        ReadPhoneNote();
+                        break;
+                    case "2":
+                        AddContact();
+                        break;
+                    case "3":
+                        SelectContact();
+                        break;
+                    case "4":
+                        flag = false;
+                        break;
+                }
+            }
         }
     }
 }

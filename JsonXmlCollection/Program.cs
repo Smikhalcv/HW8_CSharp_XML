@@ -12,8 +12,7 @@ namespace JsonXmlCollection
             numberList.PrintList();
             numberList.DeleteRangeValue();
             numberList.PrintList();*/
-            PhoneNote.AddContact();
-            PhoneNote.ReadPhoneNote();
+            PhoneNote.PhoneNoteManager();
         }
 
 
