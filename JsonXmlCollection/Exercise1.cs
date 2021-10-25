@@ -16,7 +16,7 @@ namespace JsonXmlCollection
         /// <summary>
         /// Заполняет список 100 значениями в диапозоне от 0 до 100
         /// </summary>
-        public void FillingList()
+        private void FillingList()
         {
             for (int i = 0; i < limitList; i++)
             {
@@ -27,7 +27,7 @@ namespace JsonXmlCollection
         /// <summary>
         /// Выводит список чисел на экран
         /// </summary>
-        public void PrintList()
+        private void PrintList()
         {
             for (int i = 0; i < numberList.Count; i++)
             {
@@ -43,7 +43,7 @@ namespace JsonXmlCollection
         /// <summary>
         /// Удаляет значения из списка в заданном диапозоне
         /// </summary>
-        public void DeleteRangeValue()
+        private void DeleteRangeValue()
         {
             for (int i = 0; i < numberList.Count; i++)
             {
@@ -53,6 +53,17 @@ namespace JsonXmlCollection
                     i--;
                 }
             }
+        }
+
+        /// <summary>
+        /// Выполняет по очереди функции наполнения, отображение, удаления и отображения содержимого списка
+        /// </summary>
+        public void ExecuterExercise1()
+        {
+            FillingList();
+            PrintList();
+            DeleteRangeValue();
+            PrintList();
         }
     }
 }
